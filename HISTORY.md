@@ -9,28 +9,7 @@
    nvm --version
    ```
 
-2. Install node environment
-
-   ```bash
-   # Setup node manager
-   nvm install --lts 18
-
-   # Check
-   nvm current
-   nvm list --no-alias
-   node --version
-
-   # Check
-   npm --version
-   yarn --version
-
-   # Setup package manger
-   npm install --global npm   # Maybe need to set tslint.json version. Please check the console
-   npm install --global yarn
-
-   ```
-
-3. Auto setting node environment from `.nvmrc`
+2. Auto setting node environment from `.nvmrc`
 
    ```bash
    # Open the shell control file
@@ -64,6 +43,26 @@
    ```
 
    Save and quit(`esc` + `:wq`), then reopen your terminal.
+
+3. Install node environment
+
+   ```bash
+   # Setup node manager
+   nvm install --lts 18
+
+   # Check
+   nvm current
+   nvm list --no-alias
+   node --version
+
+   # Setup package manger
+   npm install --global npm   # Maybe need to set tslint.json version. Please check the console
+   npm install --global yarn
+
+   # Check
+   npm --version
+   yarn --version
+   ```
 
 ## Project
 
@@ -110,6 +109,10 @@ yarn add --dev \
 # Yarn Contraints plugin
 yarn plugin import constraints
 # yarn constraints --fix
+
+# Audit-Fix for Yarn Berry
+yarn add --dev yarn-audit-fix
+# yarn yarn-audit-fix --flow=patch
 ```
 
 #### Replace default dependencies in CRA
@@ -370,7 +373,7 @@ yarn start
 yarn test
 ```
 
-![yarn-run-test.png](.history/yarn-run-test.png)
+![yarn-run-test.png](.guide/yarn-run-test.png)
 
 ```bash
 # For static resource hosting test
