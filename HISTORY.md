@@ -109,7 +109,13 @@ yarn add --dev \
 # Yarn Contraints plugin
 yarn plugin import constraints
 # yarn constraints --fix
+
+# Yarn Upgrade plugin
+yarn plugin import interactive-tools
+# yarn upgrade-interactive
 ```
+
+- [`yarn upgrade-interactive`](https://yarnpkg.com/cli/upgrade-interactive)
 
 #### Replace default dependencies in CRA
 
