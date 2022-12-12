@@ -109,10 +109,6 @@ yarn add --dev \
 # Yarn Contraints plugin
 yarn plugin import constraints
 # yarn constraints --fix
-
-# Audit-Fix for Yarn Berry
-yarn add --dev yarn-audit-fix
-# yarn yarn-audit-fix --flow=patch
 ```
 
 #### Replace default dependencies in CRA
