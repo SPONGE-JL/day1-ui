@@ -115,13 +115,14 @@ yarn plugin import constraints
 #### Replace default dependencies in CRA
 
 ```bash
+# Global install for CLI
+yarn dlx eslint
+
 # For eslintConfig dependency resolve
 yarn add --dev \
-    eslint-config-react-app \
+    eslint \
+    eslint-plugin-react \
     eslint-plugin-jest
-
-# For static resource hosting test
-yarn add --dev serve
 ```
 
 - After install, then remove below lines in `package.json`.
@@ -140,14 +141,242 @@ yarn add --dev serve
     }
   ```
 
-- Test below commands:
+## Coding style convention
 
-  ```bash
-  # React app in dev
-  yarn test
-  yarn start
+### Javascript coding styling
 
-  # Check react app with static hosting
-  yarn build
-  serve -s build -l 1234
-  ```
+#### 1. Basic [ESLint](https://eslint.org/) eco-system for React
+
+```bash
+# React for ESLint (not control in CRA)
+yarn add --dev \
+    @babel/eslint-parser \
+    @babel/preset-react \
+    eslint-plugin-import \
+    eslint-plugin-jest \
+    eslint-plugin-n \
+    eslint-plugin-node \
+    eslint-plugin-promise \
+    eslint-plugin-react
+```
+
+```javascript
+// in .eslintrc.js
+{
+  env: {
+    "jest/globals": true,
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  parser: "@babel/eslint-parser",
+  parserOptions: {
+    ecmaVersion: "latest",
+    ecmaFeatures: {
+      jsx: true,
+    },
+    sourceType: "module",
+  },
+  plugins: [
+    "jest",
+  ],
+  extends: [
+    // Ref. > https://github.com/jsx-eslint/eslint-plugin-react#readme
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ]
+}
+```
+
+```javascript
+// in .babelrc
+{
+  "presets": [
+    "@babel/preset-react"
+  ]
+}
+```
+
+#### 2. Extend [JavaScript Standard Style](https://standardjs.com/)
+
+```bash
+# Extend Statandard Style
+yarn add --dev \
+    eslint-config-standard \
+    eslint-config-standard-jsx \
+    eslint-config-standard-react\
+    eslint-plugin-standard
+
+# prettier
+yarn add --dev prettier
+```
+
+```javascript
+// in .eslintrc.js
+{
+  extends: [
+    // Ref. > https://www.npmjs.com/package/eslint-config-standard-react
+    "standard",
+    "standard-jsx",
+    "standard-react",
+  ],
+  // optional
+  rules: {
+    // Override Standard JS style
+    "comma-dangle": [
+      "error",
+      {
+        arrays: "always-multiline",
+        objects: "always-multiline",
+        imports: "only-multiline",
+        exports: "only-multiline",
+        functions: "only-multiline",
+      },
+    ],
+    quotes: ["error", "double"],
+    semi: ["error", "always"],
+  },
+}
+```
+
+#### 3. Check all about JS styling
+
+- check [`.eslintrc.js`](.eslintrc.js)
+
+- check [`.eslintignore`](.eslintignore)
+
+- check [`.babelrc`](.babelrc)
+
+- check [`.prettierignore`](.prettierignore)
+
+  > Set style sheets ignore.
+  > These are controlled by [Style Lint](https://stylelint.io/).
+
+### SCSS Styling: [Style Lint](https://stylelint.io/) with [Community Standard on SCSS](https://www.npmjs.com/package/stylelint-config-standard-scss)
+
+![stylelint-icon](https://stylelint.io/img/light.svg)
+
+```bash
+# Add lint system
+yarn add --dev \
+    stylelint \
+    stylelint-config-standard \
+    stylelint-config-standard-scss
+```
+
+```javascript
+// .stylelintrc.js
+// Ref. > https://stylelint.io/user-guide/configure
+module.exports = {
+  extends: [
+    // Ref. > https://github.com/stylelint-scss/stylelint-config-standard-scss#readme
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+  ],
+};
+```
+
+- check [`.stylelintrc.js`](.stylelintrc.js)
+
+- cheeck [`.stylelintignore`](.stylelintignore)
+
+### VCM Integration: [Husky](https://typicode.github.io/husky/#/) and [Lint-staged](https://github.com/okonet/lint-staged#readme)
+
+```bash
+# Add integtation system
+yarn add --dev \
+    husky \
+    lint-staged
+```
+
+```json
+// in package.json
+{
+  "scripts": {
+    "postinstall": "husky install",
+    "lint": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{css,scss}": ["stylelint --fix", "git add"],
+    "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write", "git add"],
+    "*.json": ["prettier --write", "git add"],
+    "*.md": ["prettier --write", "git add"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
+```
+
+```json
+// .vscode/setting.json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "eslint.validate": ["javascript"]
+}
+```
+
+```bash
+# husky auto install check
+yarn cache clean --all
+yarn install --immutable # --> Find out .husky/ folder
+
+# Lint testing
+git add .
+yarn lint
+```
+
+### Testing setup
+
+```json
+// in package.json
+{
+  "scripts": {
+    "test": "react-scripts test --coverage",
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.{js,jsx,ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+}
+```
+
+> **Must read: [Create React App uses for Jest Supported overrides](https://create-react-app.dev/docs/running-tests/#configuration)**
+
+### Check
+
+```bash
+# React app in dev
+yarn start
+
+# React app testing
+yarn test
+```
+
+![yarn-run-test.png](.history/yarn-run-test.png)
+
+```bash
+# For static resource hosting test
+yarn add --dev serve
+
+# Check react app with static hosting
+yarn build
+serve -s build -l 1234
+```

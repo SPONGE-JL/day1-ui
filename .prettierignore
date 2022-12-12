@@ -1,0 +1,6 @@
+.yarn
+build
+node_modules
+
+*.css
+*.scss
