@@ -1,5 +1,21 @@
 # HISTORY
 
+- [HISTORY](#history)
+  - [Environment](#environment)
+  - [Project](#project)
+    - [Initiation](#initiation)
+    - [Setup Node Version \& Package Manager](#setup-node-version--package-manager)
+      - [Replace default dependencies in CRA](#replace-default-dependencies-in-cra)
+  - [Coding style convention](#coding-style-convention)
+    - [Basic ESLint eco-system for React](#basic-eslint-eco-system-for-react)
+    - [JavaScript coding styling: Extend JavaScript Standard Style](#javascript-coding-styling-extend-javascript-standard-style)
+    - [TypeScript coding styling: Extend TypeScript Standard Style](#typescript-coding-styling-extend-typescript-standard-style)
+    - [Check all about styling](#check-all-about-styling)
+    - [SCSS Styling: Style Lint with Community Standard on SCSS](#scss-styling-style-lint-with-community-standard-on-scss)
+    - [VCM Integration: Husky and Lint-staged](#vcm-integration-husky-and-lint-staged)
+    - [Testing setup](#testing-setup)
+    - [Check](#check)
+
 ## Environment
 
 1. [Install nvm(Node Version Manager)](https://github.com/nvm-sh/nvm#installing-and-updating)
@@ -102,9 +118,7 @@ node -v > .nvmrc && cat .nvmrc
 
 ```bash
 # Yarn berry with VScode
-yarn add --dev \
-    @yarnpkg/sdks \
-    vscode
+yarn dlx @yarnpkg/sdks vscode
 
 # Yarn Contraints plugin
 yarn plugin import constraints
@@ -148,9 +162,7 @@ yarn add --dev \
 
 ## Coding style convention
 
-### Javascript coding styling
-
-#### 1. Basic [ESLint](https://eslint.org/) eco-system for React
+### Basic [ESLint](https://eslint.org/) eco-system for React
 
 ```bash
 # React for ESLint (not control in CRA)
@@ -204,7 +216,7 @@ yarn add --dev \
 }
 ```
 
-#### 2. Extend [JavaScript Standard Style](https://standardjs.com/)
+### JavaScript coding styling: Extend [JavaScript Standard Style](https://standardjs.com/)
 
 ```bash
 # Extend Statandard Style
@@ -246,7 +258,79 @@ yarn add --dev prettier
 }
 ```
 
-#### 3. Check all about JS styling
+### [TypeScript](https://www.typescriptlang.org/) coding styling: Extend [TypeScript Standard Style](https://www.npmjs.com/package/eslint-config-standard-with-typescript)
+
+```bash
+# Enable TypeScript
+yarn add --dev \
+    typescript \
+    @types/node \
+    @types/react \
+    @types/react-dom \
+    @types/jest
+
+# Add Plugin for Yarn Berry
+yarn plugin import typescript
+```
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
+}
+```
+
+- Helpful references:
+  - [React TypeScript Cheatsheet - Setup TypeScript with React](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/)
+  - [Create React App - Adding TypeScript](https://create-react-app.dev/docs/adding-typescript/)
+
+```bash
+yarn add --dev \
+    eslint-config-standard-with-typescript \
+    eslint-plugin-react-hooks \
+    @typescript-eslint/eslint-plugin \
+    @typescript-eslint/parser
+```
+
+```javascript
+// in .eslintrc.js
+{
+  parserOptions: {
+    project: './tsconfig.json'
+  },
+  extends: [
+    // Ref. > https://www.npmjs.com/package/eslint-config-standard-with-typescript
+    "standard-with-typescript"
+  ],
+}
+```
+
+### Check all about styling
+
+- check [`tsconfig.json`](tsconfig.json)
 
 - check [`.eslintrc.js`](.eslintrc.js)
 

@@ -11,16 +11,21 @@ module.exports = {
       version: "detect",
     },
   },
-  parser: "@babel/eslint-parser",
+  // parser: "@babel/eslint-parser",
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     ecmaFeatures: {
       jsx: true,
     },
     sourceType: "module",
+    project: [
+      "tsconfig.json",
+    ],
   },
   plugins: [
     "jest", // Ref. > https://www.npmjs.com/package/eslint-plugin-jest
+    "@typescript-eslint", // Ref. > https://github.com/prettier/prettier-eslint/issues/201#issuecomment-463110468
   ],
   extends: [
     // Ref. > https://github.com/jsx-eslint/eslint-plugin-react#readme
@@ -30,6 +35,8 @@ module.exports = {
     "standard",
     "standard-jsx",
     "standard-react",
+    // Ref. > https://www.npmjs.com/package/eslint-config-standard-with-typescript
+    "standard-with-typescript",
   ],
   rules: {
     // Override Basic ESLint
@@ -48,5 +55,9 @@ module.exports = {
     ],
     quotes: ["error", "double"],
     semi: ["error", "always"],
+    // Override Typescript-ESLint
+    "@typescript-eslint/quotes": ["error", "double"],
+    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/space-before-function-paren": ["error", "never"],
   },
 };
