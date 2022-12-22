@@ -28,7 +28,9 @@
 
 ### References
 
-- [useful boilerplates](https://webdriver.io/docs/boilerplates)
+- [Using WebDriverIO vs. Selenium WebDriver: How, When, and Why](https://gorillalogic.com/blog/using-webdriverio-vs-selenium-webdriver-how-when-and-why/)
+
+- [Useful boilerplates](https://webdriver.io/docs/boilerplates)
   - [webdriverio/cucumber-bolierplate](https://github.com/webdriverio/cucumber-boilerplate)
   - [bar_foo/wdio-cucumber-typescript](https://gitlab.com/bar_foo/wdio-cucumber-typescript)
 
