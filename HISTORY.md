@@ -15,6 +15,7 @@
     - [VCM Integration: Husky and Lint-staged](#vcm-integration-husky-and-lint-staged)
     - [Testing setup](#testing-setup)
     - [Check](#check)
+    - [Ecosystem](#ecosystem)
 
 ## Environment
 
@@ -278,11 +279,7 @@ yarn plugin import typescript
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -297,9 +294,7 @@ yarn plugin import typescript
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
 ```
 
@@ -428,7 +423,7 @@ yarn lint
 // in package.json
 {
   "scripts": {
-    "test": "react-scripts test --coverage",
+    "test": "react-scripts test --coverage"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -443,7 +438,7 @@ yarn lint
         "statements": 100
       }
     }
-  },
+  }
 }
 ```
 
@@ -469,3 +464,24 @@ yarn add --dev serve
 yarn build
 serve -s build -l 1234
 ```
+
+### Ecosystem
+
+```bash
+# Install React Router
+yarn add react-router-dom
+
+# Install user-event for using a higher-level abstraction, not the fireEvent
+yarn add --dev \
+    @testing-library/dom \
+    @testing-library/user-event
+```
+
+Check [`src/Router.tsx`](./src/Router.tsx) and [`src/Router.test.tsx`](./src/Router.test.tsx)
+
+- Read more:
+  - [React Router](https://reactrouter.com/en/main/start/overview)
+    with [Examples](https://github.com/remix-run/react-router/tree/main/examples)
+  - [user-event](https://testing-library.com/docs/user-event/intro#writing-tests-with-userevent)
+    ([package](https://www.npmjs.com/package/@testing-library/user-event))
+  - [Avoid Nesting when you're Testing](https://kentcdodds.com/blog/avoid-nesting-when-youre-testing)

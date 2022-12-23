@@ -1,11 +1,9 @@
 import React from "react";
 
+import Router from "./Router";
+
 function App(): JSX.Element {
-  return (
-    <>
-      Hello, React-TS!
-    </>
-  );
+  return <Router />;
 }
 
 export default App;

@@ -19,9 +19,7 @@ module.exports = {
       jsx: true,
     },
     sourceType: "module",
-    project: [
-      "tsconfig.json",
-    ],
+    project: ["tsconfig.json"],
   },
   plugins: [
     "jest", // Ref. > https://www.npmjs.com/package/eslint-plugin-jest
@@ -41,7 +39,14 @@ module.exports = {
   rules: {
     // Override Basic ESLint
     "jsx-quotes": ["error", "prefer-double"],
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": [
+      "error",
+      {
+        anonymous: "always",
+        named: "never",
+        asyncArrow: "always",
+      },
+    ],
     // Override Standard JS style
     "comma-dangle": [
       "error",
@@ -56,8 +61,25 @@ module.exports = {
     quotes: ["error", "double"],
     semi: ["error", "always"],
     // Override Typescript-ESLint
+    "@typescript-eslint/space-before-function-paren": [
+      "error",
+      {
+        anonymous: "always",
+        named: "never",
+        asyncArrow: "always",
+      },
+    ],
+    "@typescript-eslint/comma-dangle": [
+      "error",
+      {
+        arrays: "always-multiline",
+        objects: "always-multiline",
+        imports: "only-multiline",
+        exports: "only-multiline",
+        functions: "only-multiline",
+      },
+    ],
     "@typescript-eslint/quotes": ["error", "double"],
     "@typescript-eslint/semi": ["error", "always"],
-    "@typescript-eslint/space-before-function-paren": ["error", "never"],
   },
 };
