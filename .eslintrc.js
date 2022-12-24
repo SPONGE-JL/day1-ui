@@ -26,6 +26,7 @@ module.exports = {
     "@typescript-eslint", // Ref. > https://github.com/prettier/prettier-eslint/issues/201#issuecomment-463110468
   ],
   extends: [
+    "prettier",
     // Ref. > https://github.com/jsx-eslint/eslint-plugin-react#readme
     "eslint:recommended",
     "plugin:react/recommended",
@@ -81,5 +82,7 @@ module.exports = {
     ],
     "@typescript-eslint/quotes": ["error", "double"],
     "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/member-delimiter-style": "off", // Disable for use only formtting lint rule (prettier)
+    "@typescript-eslint/triple-slash-reference": "off",
   },
 };

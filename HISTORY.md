@@ -228,7 +228,9 @@ yarn add --dev \
     eslint-plugin-standard
 
 # prettier
-yarn add --dev prettier
+yarn add --dev \
+    prettier \
+    eslint-config-prettier
 ```
 
 ```javascript
