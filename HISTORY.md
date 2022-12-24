@@ -375,6 +375,9 @@ module.exports = {
 yarn add --dev \
     husky \
     lint-staged
+
+# Add enabled husky's hook
+npx husky-init --yarn2 && yarn
 ```
 
 ```json
@@ -384,19 +387,21 @@ yarn add --dev \
     "postinstall": "husky install",
     "lint": "lint-staged"
   },
-  "lint-staged": {
-    "*.{css,scss}": ["stylelint --fix", "git add"],
-    "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write", "git add"],
-    "*.json": ["prettier --write", "git add"],
-    "*.md": ["prettier --write", "git add"]
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --allow-empty"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["eslint --cache --fix", "prettier --write"],
+    "*.css": ["stylelint --fix"],
+    "*.scss": ["stylelint --syntax=scss --fix"],
+    "*.{json,md}": ["prettier --write"]
   }
 }
 ```
+
+> Read more: [Husky for Yarn 2](https://typicode.github.io/husky/#/?id=yarn-2)
 
 ```json
 // .vscode/setting.json
@@ -405,12 +410,21 @@ yarn add --dev \
     "source.fixAll.eslint": true
   },
   "editor.formatOnSave": true,
-  "eslint.validate": ["javascript"]
+  "editor.formatOnPaste": false,
+  "eslint.nodePath": ".yarn/sdks",
+  "eslint.validate": ["javascript"],
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": ".yarn/sdks/typescript/lib"
 }
 ```
 
 ```bash
-# husky auto install check
+# Check husky auto install
 yarn cache clean --all
 yarn install --immutable # --> Find out .husky/ folder
 
@@ -439,7 +453,8 @@ yarn lint
         "lines": 100,
         "statements": 100
       }
-    }
+    },
+    "coverageReporters": ["json", "html", "lcov", "text"]
   }
 }
 ```

@@ -6,34 +6,31 @@
   "scripts": {
     "postinstall": "husky install",
     "start": "react-scripts start",
-    "test": "react-scripts test --coverage",
-    "build": "yarn run test --watchAll=false --ci && react-scripts build",
+    "test": "yarn run test:unit --watchAll",
+    "build": "yarn run test:unit --watchAll=false --ci && react-scripts build",
+    "test:unit": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lint": "lint-staged"
   },
-  "lint-staged": {
-    "*.css": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --syntax=scss --fix",
-      "git add"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --allow-empty"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix"
+    ],
+    "*.scss": [
+      "stylelint --syntax=scss --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [
@@ -47,7 +44,13 @@
         "lines": 100,
         "statements": 100
       }
-    }
+    },
+    "coverageReporters": [
+      "json",
+      "html",
+      "lcov",
+      "text"
+    ]
   },
   "browserslist": {
     "production": [
@@ -96,8 +99,8 @@
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-standard": "^5.0.0",
-    "husky": "^8.0.2",
-    "lint-staged": "^13.1.0",
+    "husky": ">=7",
+    "lint-staged": ">=10",
     "prettier": "^2.8.1",
     "stylelint": "^14.16.0",
     "stylelint-config-standard": "^29.0.0",

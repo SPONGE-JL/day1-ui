@@ -5033,8 +5033,8 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-standard: ^5.0.0
-    husky: ^8.0.2
-    lint-staged: ^13.1.0
+    husky: ">=7"
+    lint-staged: ">=10"
     prettier: ^2.8.1
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7259,7 +7259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^8.0.2":
+"husky@npm:>=7":
   version: 8.0.2
   resolution: "husky@npm:8.0.2"
   bin:
@@ -8763,7 +8763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^13.1.0":
+"lint-staged@npm:>=10":
   version: 13.1.0
   resolution: "lint-staged@npm:13.1.0"
   dependencies:
