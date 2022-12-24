@@ -5,7 +5,7 @@ import Home from "routes/Home";
 import MySubscriptionPlan from "routes/MySubscriptionPlan";
 import NoMatch from "routes/NoMatch";
 
-function Router(): JSX.Element {
+export default function Router(): JSX.Element {
   const basePath = "/";
   return (
     <BrowserRouter>
@@ -44,5 +44,3 @@ function Navigation(): JSX.Element {
     </nav>
   );
 }
-
-export default Router;

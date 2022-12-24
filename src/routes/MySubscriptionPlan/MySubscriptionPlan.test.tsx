@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import MySubscriptionPlan from "./MySubscriptionPlan";
+import { MySubscriptionPlan } from "./MySubscriptionPlan";
 
 test("render MySubscriptionPlan component correctly.", () => {
   render(<MySubscriptionPlan />);

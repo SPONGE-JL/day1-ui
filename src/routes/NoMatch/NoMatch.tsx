@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NoMatch({ homePath }: { homePath: string }): JSX.Element {
+export function NoMatch({ homePath }: { homePath: string }): JSX.Element {
   return (
     <>
       <h1>Oops!</h1>
@@ -12,5 +12,3 @@ function NoMatch({ homePath }: { homePath: string }): JSX.Element {
     </>
   );
 }
-
-export default NoMatch;
