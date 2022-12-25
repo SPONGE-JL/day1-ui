@@ -120,6 +120,7 @@ node -v > .nvmrc && cat .nvmrc
 ```bash
 # Yarn berry with VScode
 yarn dlx @yarnpkg/sdks vscode
+yarn add --dev @yarnpkg/sdks
 
 # Yarn Contraints plugin
 yarn plugin import constraints
@@ -168,7 +169,6 @@ yarn add --dev \
 ```bash
 # React for ESLint (not control in CRA)
 yarn add --dev \
-    @babel/eslint-parser \
     @babel/preset-react \
     eslint-plugin-import \
     eslint-plugin-jest \
@@ -189,7 +189,6 @@ yarn add --dev \
       version: "detect",
     },
   },
-  parser: "@babel/eslint-parser",
   parserOptions: {
     ecmaVersion: "latest",
     ecmaFeatures: {
@@ -230,7 +229,8 @@ yarn add --dev \
 # prettier
 yarn add --dev \
     prettier \
-    eslint-config-prettier
+    eslint-config-prettier \
+    eslint-plugin-prettier
 ```
 
 ```javascript
@@ -308,13 +308,14 @@ yarn plugin import typescript
 yarn add --dev \
     eslint-config-standard-with-typescript \
     eslint-plugin-react-hooks \
-    @typescript-eslint/eslint-plugin \
-    @typescript-eslint/parser
+    @typescript-eslint/parser \
+    @typescript-eslint/eslint-plugin
 ```
 
 ```javascript
 // in .eslintrc.js
 {
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     project: './tsconfig.json'
   },
@@ -435,11 +436,22 @@ yarn lint
 
 ### Testing setup
 
+```bash
+# Easy way to separated command like `cmd:*`
+yarn add --dev npm-run-all
+
+# For static resource hosting test
+yarn add --dev serve
+```
+
 ```json
 // in package.json
 {
   "scripts": {
-    "test": "react-scripts test --coverage"
+    "test": "yarn run test:unit --watchAll",
+    "test:unit": "react-scripts test --coverage",
+    "build": "yarn run test:unit --watchAll=false --ci && react-scripts build",
+    "serve": "serve -s build -l 3001"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -474,12 +486,11 @@ yarn test
 ![yarn-run-test.png](.guide/yarn-run-test.png)
 
 ```bash
-# For static resource hosting test
-yarn add --dev serve
+# Bundle static assets
+yarn build
 
 # Check react app with static hosting
-yarn build
-serve -s build -l 1234
+yarn serve
 ```
 
 ## Ecosystem for Create React App

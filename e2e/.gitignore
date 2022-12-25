@@ -1,0 +1,8 @@
+# Ignore steps compired js files
+step_definitions/**/*.steps.js
+*.log
+
+# Ignore cucumber report files
+outputs/**
+!outputs/basic/
+!outputs/basic/will.be.auto-created.by.cucumber

@@ -1,0 +1,28 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "types": [
+      "jest",
+      "@wdio/globals/types",
+      "@wdio/cucumber-framework",
+      "expect-webdriverio"
+    ],
+    "project": "./tsconfig.json",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["@types/*"]
+    }
+  },
+  "include": [
+    "step_definitions/**/*.ts",
+    "support/**/*.ts",
+    "utils/**/*.ts",
+    "jest.config.cjs",
+    "jest.setup.js",
+    "cucumber.report.ts",
+    "wdio.conf.ts",
+    "wdio.ts"
+  ]
+}

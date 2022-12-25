@@ -1,3 +1,4 @@
+!.*rc.base.js
 !.*rc.js
 src/setupTests.ts
 

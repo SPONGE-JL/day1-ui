@@ -1,0 +1,29 @@
+// eslint-disable-next-line no-var
+var baseConfig = require("day1-ui/.eslintrc.base.js");
+
+module.exports = {
+  // env: baseConfig.env,
+  // parser: baseConfig.parser,
+  // parserOptions: {
+  //   ...baseConfig.parserOptions,
+  //   tsconfigRootDir: __dirname,
+  //   project: [
+  //     "./tsconfig.json",
+  //   ],
+  // },
+  plugins: [
+    // ...baseConfig.plugins,
+    "wdio",
+    // Ref. https://www.npmjs.com/package/eslint-plugin-cucumber
+    "cucumber",
+  ],
+  extends: [
+    // ...baseConfig.extends,
+    "eslint:recommended",
+    // Ref. > https://www.npmjs.com/package/eslint-plugin-wdio
+    "plugin:wdio/recommended",
+  ],
+  rules: {
+    // ...baseConfig.rules,
+  },
+};
