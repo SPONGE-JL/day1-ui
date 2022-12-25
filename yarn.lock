@@ -5002,9 +5002,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"day1-ui-react@workspace:.":
+"day1-ui@workspace:.":
   version: 0.0.0-use.local
-  resolution: "day1-ui-react@workspace:."
+  resolution: "day1-ui@workspace:."
   dependencies:
     "@babel/eslint-parser": ^7.19.1
     "@babel/preset-react": ^7.18.6
@@ -5445,6 +5445,12 @@ __metadata:
   checksum: 62ba61a830c56801db28ff6305c7d289b6dc9f859054e8c982abd8ee0b0a14d2e9a8e7d086ffee12e868d43e2bbe8a964be55ddbd8c8957714c87373c7a4f9b0
   languageName: node
   linkType: hard
+
+"e2e@workspace:e2e":
+  version: 0.0.0-use.local
+  resolution: "e2e@workspace:e2e"
+  languageName: unknown
+  linkType: soft
 
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0

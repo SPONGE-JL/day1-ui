@@ -2,8 +2,11 @@
 
 - [DAY1-UI Tech-Stack](#day1-ui-tech-stack)
   - [Overview](#overview)
+    - [End-to-end testing](#end-to-end-testing)
 
 ## Overview
+
+### End-to-end testing
 
 ```mermaid
 %%{ init: { "fontFamily": "Noto Sans KR, sans-serif" } }%%

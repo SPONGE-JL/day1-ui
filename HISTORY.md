@@ -15,7 +15,7 @@
     - [VCM Integration: Husky and Lint-staged](#vcm-integration-husky-and-lint-staged)
     - [Testing setup](#testing-setup)
     - [Check](#check)
-    - [Ecosystem](#ecosystem)
+  - [Ecosystem for Create React App](#ecosystem-for-create-react-app)
 
 ## Environment
 
@@ -482,7 +482,7 @@ yarn build
 serve -s build -l 1234
 ```
 
-### Ecosystem
+## Ecosystem for Create React App
 
 ```bash
 # Install React Router

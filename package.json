@@ -1,16 +1,20 @@
 {
-  "name": "day1-ui-react",
+  "name": "day1-ui",
   "version": "0.1.0",
   "private": true,
   "packageManager": "yarn@3.3.0",
+  "workspaces": [
+    "e2e"
+  ],
   "scripts": {
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "start": "react-scripts start",
     "test": "yarn run test:unit --watchAll",
-    "build": "yarn run test:unit --watchAll=false --ci && react-scripts build",
     "test:unit": "react-scripts test --coverage",
-    "eject": "react-scripts eject",
-    "lint": "lint-staged"
+    "build": "yarn run test:unit --watchAll=false --ci && react-scripts build",
+    "lint": "lint-staged",
+    "serve": "serve -s build -l 3001",
+    "eject": "react-scripts eject"
   },
   "husky": {
     "hooks": {

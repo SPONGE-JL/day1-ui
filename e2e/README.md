@@ -1,8 +1,15 @@
-# HISTORY on E2E
+# e2e
 
-- [HISTORY on E2E](#history-on-e2e)
+- [e2e](#e2e)
+  - [TL;RT](#tlrt)
   - [Core Libraries](#core-libraries)
-    - [References](#references)
+  - [References](#references)
+
+## TL;RT
+
+- If you need usage of this workspace, [read this part](../../../README.md##e2e-part).
+
+- If you need history of this workspace, [read this part](HISTORY.E2E.md#history-on-e2e)
 
 ## Core Libraries
 
@@ -21,16 +28,16 @@
     - [Usage examples](https://www.selenium.dev/selenium/docs/api/javascript/)
   - **Use [selenium](https://www.selenium.dev/about/) as a suite of tools for automating web browsers with**
     **[selenium-standalone](https://github.com/webdriverio/selenium-standalone#readme)**
-  
 - **Wrapping BDD scenario with [Cucumber.js](https://github.com/cucumber/cucumber-js#readme).**
   - [WebDriverIO - Cucumber Framework](https://webdriver.io/docs/frameworks#using-cucumber) +
     [Snyk Advisor Data](https://snyk.io/advisor/npm-package/@wdio/cucumber-framework)
 
-### References
+## References
 
 - [Using WebDriverIO vs. Selenium WebDriver: How, When, and Why](https://gorillalogic.com/blog/using-webdriverio-vs-selenium-webdriver-how-when-and-why/)
 
 - [Useful boilerplates](https://webdriver.io/docs/boilerplates)
+
   - [webdriverio/cucumber-bolierplate](https://github.com/webdriverio/cucumber-boilerplate)
   - [bar_foo/wdio-cucumber-typescript](https://gitlab.com/bar_foo/wdio-cucumber-typescript)
 
