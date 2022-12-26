@@ -5,7 +5,7 @@
   "scripts": {
     "test": "run-s test:unit test:feature",
     "test:unit": "jest --config=jest.config.cjs --detectOpenHandles",
-    "test:feature": "node --loader ts-node/esm wdio run wdio.ts",
+    "test:feature": "yarn ts-node wdio run wdio.ts",
     "report": "ts-node cucumber.report.ts --module commonjs"
   },
   "devDependencies": {

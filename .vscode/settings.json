@@ -28,5 +28,14 @@
   "json.format.enable": false,
   "[json]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  }
+  },
+  "[cucumber]": {
+    "editor.defaultFormatter": "CucumberOpen.cucumber-official"
+  },
+  "[feature]": {
+    "editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
+  },
+  "cucumber.features": ["**/*.feature"],
+  "cucumberautocomplete.steps": ["**/step_definitions/*.ts"],
+  "cucumberautocomplete.strictGherkinCompletion": true
 }
