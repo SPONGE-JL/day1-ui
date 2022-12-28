@@ -3,11 +3,7 @@
     "baseUrl": "src",
     "target": "es5",
     "outDir": "dist",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -25,11 +21,7 @@
   "include": [
     "src",
     ".eslintrc.js",
+    "build-src/" // TODO: temporary included
   ],
-  "exclude": [
-    "build",
-    "coverage",
-    "node_modules",
-    "src/setupTests.ts"
-  ]
+  "exclude": ["build", "coverage", "node_modules", "src/setupTests.ts"]
 }

@@ -1,0 +1,101 @@
+root: true
+
+env:
+  es6: true
+  node: true
+
+globals:
+  assert: true
+  expect: true
+
+parser: "@typescript-eslint/parser"
+
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  project: ./tsconfig.json
+
+plugins:
+  # Ref. > https://github.com/prettier/prettier-eslint/issues/201#issuecomment-463110468
+  - "@typescript-eslint"
+  # Ref. > plugin:wdio/recommended
+  - wdio
+
+extends:
+  - plugin:@typescript-eslint/recommended
+  # Ref. > https://www.npmjs.com/package/eslint-config-standard-with-typescript
+  - standard
+  - standard-with-typescript
+  # Ref. > https://www.npmjs.com/package/eslint-plugin-wdio
+  - plugin:wdio/recommended
+
+rules:
+  #! Override Basic ESLint
+  strict: "off"
+  global-require: "off"
+  indent:
+    - "error"
+    - 2
+    - SwitchCase: 1
+  max-len:
+    - "error"
+    - 180
+    - ignorePattern: '\s*\/\^(.*)\$\/,$'
+  comma-dangle:
+    - "error"
+    - arrays: "always-multiline"
+      objects: "always-multiline"
+      imports: "only-multiline"
+      exports: "only-multiline"
+      functions: "only-multiline"
+  quotes: ["error", "double"]
+  semi: ["error", "always"]
+  import/extensions: 0
+  import/no-extraneous-dependencies: 0
+  import/no-unresolved: 0
+  import/prefer-default-export: 0
+  no-restricted-syntax: 0
+  no-await-in-loop: 0
+  new-cap:
+    - "error"
+    - newIsCap: true
+      capIsNewExceptions:
+        - "Given"
+        - "When"
+        - "Then"
+  space-before-function-paren:
+    - "error"
+    - anonymous: "always"
+      named: "never"
+      asyncArrow: "always"
+  require-jsdoc:
+    - "error"
+    - require:
+        FunctionDeclaration: true
+        MethodDefinition: true
+        ClassDeclaration: true
+  valid-jsdoc:
+    - "error"
+    - requireReturn: false
+      matchDescription: ".+"
+
+  #! Override Typescript-ESLint
+  "@typescript-eslint/space-before-function-paren":
+    - "error"
+    - anonymous: "always"
+      named: "never"
+      asyncArrow: "always"
+  "@typescript-eslint/comma-dangle":
+    - "error"
+    - arrays: "always-multiline"
+      objects: "always-multiline"
+      imports: "only-multiline"
+      exports: "only-multiline"
+      functions: "only-multiline"
+  "@typescript-eslint/quotes": ["error", "double"]
+  "@typescript-eslint/semi": ["error", "always"]
+  "@typescript-eslint/ban-ts-comment": 0
+  "@typescript-eslint/explicit-module-boundary-types": 0
+  "@typescript-eslint/restrict-template-expressions": "off"
+  "@typescript-eslint/member-delimiter-style": "off" # Disable for use only formtting lint rule (prettier)
+  "@typescript-eslint/triple-slash-reference": "off"

@@ -18,14 +18,14 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --cache --fix",
       "prettier --write"
     ],
-    "*.css": [
+    "src/**/*.css": [
       "stylelint --fix"
     ],
-    "*.scss": [
+    "src/**/*.scss": [
       "stylelint --syntax=scss --fix"
     ],
     "*.{json,md}": [

@@ -15,7 +15,10 @@ function givenMockedChildren(): void {
     return (
       <div>
         <h2>테스트 요금제 목록</h2>
-        <List iterableItems={["요금제1", "요금제2", "요금제3"]} />
+        <List
+          testId="test-mobile-plan-list"
+          iterableItems={["요금제1", "요금제2", "요금제3"]}
+        />
       </div>
     );
   });
