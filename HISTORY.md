@@ -15,7 +15,11 @@
     - [VCM Integration: Husky and Lint-staged](#vcm-integration-husky-and-lint-staged)
     - [Testing setup](#testing-setup)
     - [Check](#check)
-    - [Ecosystem](#ecosystem)
+  - [Ecosystems](#ecosystems)
+    - [React Router](#react-router)
+    - [React Hooks](#react-hooks)
+    - [Recoil](#recoil)
+    - [React Query(a.k.a TenStack Query) with Axios](#react-queryaka-tenstack-query-with-axios)
 
 ## Environment
 
@@ -482,7 +486,11 @@ yarn build
 serve -s build -l 1234
 ```
 
-### Ecosystem
+## Ecosystems
+
+### [React Router](https://reactrouter.com/en/main/start/overview)
+
+> Enables client side routing
 
 ```bash
 # Install React Router
@@ -497,8 +505,63 @@ yarn add --dev \
 Check [`src/Router.tsx`](./src/Router.tsx) and [`src/Router.test.tsx`](./src/Router.test.tsx)
 
 - Read more:
-  - [React Router](https://reactrouter.com/en/main/start/overview)
-    with [Examples](https://github.com/remix-run/react-router/tree/main/examples)
+  - [React Router Examples](https://github.com/remix-run/react-router/tree/main/examples)
   - [user-event](https://testing-library.com/docs/user-event/intro#writing-tests-with-userevent)
     ([package](https://www.npmjs.com/package/@testing-library/user-event))
   - [Avoid Nesting when you're Testing](https://kentcdodds.com/blog/avoid-nesting-when-youre-testing)
+
+### [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+
+```bash
+# Install ESLint plugin for React Hooks
+yarn add --dev \
+    eslint-plugin-react-hooks
+```
+
+Check [`.eslintrc.js`](.eslintrc.js)
+
+- Read more:
+
+  - [ESLint Plugin for React Hooks](https://reactjs.org/docs/hooks-rules.html#eslint-plugin)
+
+  - [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
+
+### [Recoil](https://recoiljs.org/docs/introduction/core-concepts/)
+
+> For some data-flow graphs that flows from atoms (shared state)
+> through selectors (pure functions) and down into your React components.
+
+```bash
+# Install Recoil
+yarn add recoil
+```
+
+Check [`src/stores/user`](./src/stores/user/)
+
+- Read more:
+  - [`Core Concepts`](https://recoiljs.org/docs/introduction/core-concepts/#overview)
+    of Recoil
+  - [`Atoms`](https://recoiljs.org/docs/introduction/core-concepts/#atoms)
+    are units of state that components can subscribe to.
+  - [`Selectors`](https://recoiljs.org/docs/introduction/core-concepts/#selectors)
+    transform this state either synchronously or asynchronously.
+
+### [React Query(a.k.a TenStack Query)](https://tanstack.com/query) with [Axios](https://axios-http.com/docs/intro)
+
+> React Query is often described as the missing data-fetching library for React,
+> but in more technical terms, it makes fetching, caching, synchronizing
+> and updating server state in your React applications a breeze.
+
+```bash
+# Install React Query
+yarn add @tanstack/react-query
+```
+
+- Read more:
+
+  - [카카오페이 프론트엔드 개발자들이 React Query를 선택한 이유](https://tech.kakaopay.com/post/react-query-1/)
+
+  - [Guides & Concepts: Important defaults](https://tanstack.com/query/v4/docs/react/guides/important-defaults)
+
+  - [React Query with TypeScript](https://tanstack.com/query/v4/docs/react/typescript)
+    and [Devtools](https://tanstack.com/query/v4/docs/react/devtools)

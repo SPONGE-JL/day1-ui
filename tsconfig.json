@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "target": "es5",
     "outDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -16,12 +15,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["./src/*"]
+    }
   },
-  "include": [
-    "src",
-    ".eslintrc.js",
-    "build-src/" // TODO: temporary included
-  ],
-  "exclude": ["build", "coverage", "node_modules", "src/setupTests.ts"]
+  "include": ["./src", "./src/setupTests.ts", ".eslintrc.js"],
+  "exclude": ["./build/", "./build-src/", "./coverage/", "./node_modules/"]
 }

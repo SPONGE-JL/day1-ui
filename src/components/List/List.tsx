@@ -2,17 +2,28 @@ import React from "react";
 
 interface ListProps<T> {
   testId: string;
-  iterableItems: T[];
+  iterableItems?: T[];
+  iterateCallback: (item: T) => JSX.Element;
 }
 
-export function List({
+export default function List<T>({
   testId,
   iterableItems,
-}: ListProps<string>): JSX.Element {
+  iterateCallback,
+}: ListProps<T>): JSX.Element {
+  if (iterableItems === undefined || iterableItems.length === 0) {
+    return (
+      <input
+        data-testid={testId}
+        type="hidden"
+        value="iterableItems-is-empty"
+      />
+    );
+  }
   return (
     <ul data-testid={testId}>
-      {iterableItems.map((item, index) => (
-        <li key={index}>{item}</li>
+      {iterableItems.map((item: T, index: number) => (
+        <li key={index}>{iterateCallback(item)}</li>
       ))}
     </ul>
   );

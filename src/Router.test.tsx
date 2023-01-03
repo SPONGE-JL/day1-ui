@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, act } from "@testing-library/react";
+import { render, screen, act } from "src/customRender";
 import userEvent from "@testing-library/user-event";
 
 import Router from "./Router";

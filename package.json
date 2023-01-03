@@ -69,7 +69,8 @@
     "react-dom": "^18.2.0",
     "react-hooks": "^1.0.1",
     "react-router-dom": "^6.6.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1",
+    "recoil": "^0.7.6"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",

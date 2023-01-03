@@ -11,7 +11,6 @@ module.exports = {
       version: "detect",
     },
   },
-  // parser: "@babel/eslint-parser",
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
@@ -30,6 +29,7 @@ module.exports = {
     // Ref. > https://github.com/jsx-eslint/eslint-plugin-react#readme
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     // Ref. > https://www.npmjs.com/package/eslint-config-standard-react
     "standard",
     "standard-jsx",
@@ -48,6 +48,8 @@ module.exports = {
         asyncArrow: "always",
       },
     ],
+    indent: "off",
+    "multiline-ternary": "off",
     // Override Standard JS style
     "comma-dangle": [
       "error",
@@ -59,8 +61,9 @@ module.exports = {
         functions: "only-multiline",
       },
     ],
-    quotes: ["error", "double"],
-    semi: ["error", "always"],
+    quotes: "off",
+    "no-extra-semi": "off",
+    semi: "off",
     // Override Typescript-ESLint
     "@typescript-eslint/space-before-function-paren": [
       "error",
@@ -70,6 +73,7 @@ module.exports = {
         asyncArrow: "always",
       },
     ],
+    "@typescript-eslint/indent": "off",
     "@typescript-eslint/comma-dangle": [
       "error",
       {
@@ -81,7 +85,12 @@ module.exports = {
       },
     ],
     "@typescript-eslint/quotes": ["error", "double"],
-    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/no-extra-semi": "error",
+    "@typescript-eslint/semi": [
+      "error",
+      "always",
+      { omitLastInOneLineBlock: true },
+    ],
     "@typescript-eslint/member-delimiter-style": "off", // Disable for use only formtting lint rule (prettier)
     "@typescript-eslint/triple-slash-reference": "off",
   },

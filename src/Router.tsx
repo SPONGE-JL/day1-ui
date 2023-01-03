@@ -1,16 +1,16 @@
 import React from "react";
 import {
-  useLocation,
   BrowserRouter,
   Routes,
   Route,
-  Link,
+  useLocation,
   Outlet,
+  Link,
 } from "react-router-dom";
 
-import Home from "routes/Home";
-import MySubscriptionPlan from "routes/MySubscriptionPlan";
-import NoMatch from "routes/NoMatch";
+import Home from "src/pages/Home";
+import MySubscriptionPlan from "src/pages/MySubscriptionPlan";
+import NoMatch from "src/pages/NoMatch";
 
 export default function Router(): JSX.Element {
   const rootPath = "/";
