@@ -7,7 +7,7 @@ export interface SubscriptionPlan {
 export default function getSubscribedPlanBy(userId: number): SubscriptionPlan {
   return {
     userId,
-    subscribedPlanCode: "empty",
-    // subscribedPlanCode: "modelA",
+    subscribedPlanCode: "modelB",
+    // subscribedPlanCode: "empty",
   };
 }

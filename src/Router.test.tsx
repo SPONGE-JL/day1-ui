@@ -1,16 +1,23 @@
 import React from "react";
-import { render, screen, act } from "src/customRender";
 import userEvent from "@testing-library/user-event";
 
+import { render, screen, act } from "src/customRender";
 import Router from "./Router";
+import * as MobilePlanList from "src/features/MobilePlanList/MobilePlanList.test";
 
-test("render Router component correctly.", async () => {
+afterEach(() => {
+  jest.restoreAllMocks(); // restore the spy created with spyOn
+});
+
+test("render Router component correctly.", () => {
   render(<Router />);
   expectNavInTheDocument();
   expect(screen.getByTestId("location-check")).toHaveValue("/");
 });
 
 test("navigate to page: 나의 요금제", async () => {
+  MobilePlanList.givenApiMockOnMobilePlans();
+  MobilePlanList.whenApiMockOnSubscribedPlan("empty");
   render(<Router />);
   await act(async () => {
     await userEvent.click(screen.getByText("나의 요금제"));
