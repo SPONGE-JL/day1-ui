@@ -2,9 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 
 import MobilePlanAPI, { MobilePlan } from "src/adapters/MobilePlanAPI";
 
-type MobilePlansHook = [MobilePlan[], () => void];
-
-export default function useMobilePlans(): MobilePlansHook {
+export function useMobilePlans(userId: number): [MobilePlan[]] {
   const [mobilePlans, setMobilePlans] = useState<MobilePlan[]>([]);
 
   const fetch = useCallback(() => {
@@ -14,7 +12,7 @@ export default function useMobilePlans(): MobilePlansHook {
 
   useEffect(() => {
     fetch();
-  });
+  }, [fetch]);
 
-  return [mobilePlans, fetch];
+  return [mobilePlans];
 }

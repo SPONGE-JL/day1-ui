@@ -16,8 +16,8 @@ test("render Router component correctly.", () => {
 });
 
 test("navigate to page: 나의 요금제", async () => {
-  MobilePlanList.givenApiMockOnMobilePlans();
-  MobilePlanList.whenApiMockOnSubscribedPlan("empty");
+  MobilePlanList.givenMockedMobilePlans();
+  MobilePlanList.whenMockedSubscribedPlan("empty");
   render(<Router />);
   await act(async () => {
     await userEvent.click(screen.getByText("나의 요금제"));

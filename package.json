@@ -8,7 +8,7 @@
     "start": "react-scripts start",
     "test": "yarn run test:unit --watchAll",
     "build": "yarn run test:unit --watchAll=false --ci && react-scripts build",
-    "test:unit": "react-scripts test --logHeapUsage --coverage",
+    "test:unit": "react-scripts test --verbose --logHeapUsage --coverage",
     "eject": "react-scripts eject",
     "lint": "lint-staged"
   },

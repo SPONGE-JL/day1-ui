@@ -8,6 +8,5 @@ export default function getSubscribedPlanBy(userId: number): SubscriptionPlan {
   return {
     userId,
     subscribedPlanCode: "modelB",
-    // subscribedPlanCode: "empty",
   };
 }
